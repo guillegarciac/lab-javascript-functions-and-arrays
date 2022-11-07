@@ -59,7 +59,6 @@ sum(mixedArr)
 // Level 1: Array of numbers
 
 const numbersAvg = [2, - 6, 9, 10, 7, 4, 1, 9];
-
 function averageNumbers (numbers) { 
   let sumNumbers = 0;
   if (numbers.length === 0) return null;
@@ -76,7 +75,6 @@ averageNumbers(numbersAvg);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
 function averageWordLength(stringArray) {
   let sumWordLength = 0;
   if (stringArray.length === 0) return null; //(array.length === 0) to print null if array is empty
@@ -91,7 +89,6 @@ function averageWordLength(stringArray) {
 
 // Bonus - Iteration #4.1
 const mixedArr2 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-
 function avg(mixedArray) {
   let mixedArraySum = 0;
   if (mixedArray.length === 0) return null;
@@ -103,7 +100,6 @@ function avg(mixedArray) {
   return (mixedArraySum / mixedArray.length)
 };
 avg(mixedArr2)
-
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -125,7 +121,7 @@ function uniquifyArray (words) {
   if (words.length === 0) return null; //null if empty array is passed
   for (let i = 0; i < words.length; i++) { //for loop to iterate 
     let word = words[i]; //we declare word variable to identify each word within the wordsUnique array
-    if (newArray.indexOf(word) < 0) { //indexOf() returns 1 (true) if the word exists and -1 (false) if the word doesn't exist
+    if (newArray.indexOf(word) < 0) { //arr.indexOf(elem) => Returns the index of the given element. If the element doesn't exist, returns -1
       newArray.push(word); //then if -1, we push the word into the new newArray
     }
   }
@@ -133,10 +129,8 @@ function uniquifyArray (words) {
 };
 uniquifyArray(wordsUnique);
 
-
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
 function doesWordExist(wordzArr, word) {
   let result = false;
   if (wordzArr.length === 0) return null;
@@ -149,6 +143,18 @@ function doesWordExist(wordzArr, word) {
 }
 doesWordExist(wordsFind, 'machine');
 
+// Iteration #6: Find elements with indexOf()
+function doesWordExist(wordzArr, word) {
+  let result = false;
+  if (wordzArr.length === 0) return null;
+  for (let i = 0; i < wordzArr.length; i++) {
+    if (wordzArr.indexOf(word) !== -1) {
+      result = true;
+    }
+  }
+  return result;
+}
+doesWordExist(wordsFind, 'machine');
 
 // Iteration #7: Count repetition
 const wordsCount = [
