@@ -206,13 +206,47 @@ const matrix = [
   [4, 42, 16, 73, 38, 25, 39, 11, 24, 94, 72, 18, 8, 46, 29, 32, 40, 62, 76, 36],
   [20, 69, 36, 41, 72, 30, 23, 88, 34, 62, 99, 69, 82, 67, 59, 85, 74, 4, 36, 16],
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
-  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
+  [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 5000]
 ];
+  // rows = matrix.length; = 20
+  // columns = matrix[0].length; = 20
+  //matrix[0] = [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8]
+  //matrix[0][0] = 08
+  //matrix[0][1] = 02
+  //matrix[1][0] = 49
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let finalProduct = 0;
+  let currentRow = 0;
+  let currentColumn= 0;
+/*   let row = 0;
+  let column = 0;
+  let direction = ''; */
 
-
-
+  for (let i = 0; i < matrix.length -3; i++) { // row x row (-3 para decirle donde parar porque no quedan mas numbers )
+    // console.log(matrix[0][i]); // prints all elements in the first row
+    for (let j = 0; j < matrix[i].length -3; j++) { //column x column dentro de cada (i) & same as above.
+      currentRow = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3]
+      currentColumn = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j]
+      // console.log(i,j,'position')
+      // console.log(currentRow, currentColumn, 'results')
+      if (currentRow > finalProduct || currentColumn > finalProduct) {
+        //column = j
+        //row = i
+        if (currentRow > currentColumn) {
+          finalProduct = currentRow
+          // direction = 'row'
+        } else { 
+          finalProduct = currentColumn
+          // direction = 'column'
+        }
+      }
+    }
+  }
+  //console.log(row, column, direction);
+  return finalProduct;
+}
+console.log(greatestProduct(matrix));
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
@@ -231,3 +265,5 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
+
